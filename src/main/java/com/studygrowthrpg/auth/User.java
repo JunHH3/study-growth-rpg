@@ -44,5 +44,15 @@ public class User {
     protected void onUpdate(){
         updatedAt = LocalDateTime.now();
     }
+
+    protected User(){}
+
+    public User(String email, String nickname, String passwordHash) {
+        this.email = email;
+        this.nickname = nickname;
+        this.passwordHash = passwordHash;
+        this.status = UserStatus.ACTIVE;
+        this.role = UserRole.USER;
+    }
 }
 
