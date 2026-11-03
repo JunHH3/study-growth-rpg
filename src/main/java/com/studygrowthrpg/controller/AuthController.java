@@ -1,6 +1,7 @@
-package com.studygrowthrpg.auth;
+package com.studygrowthrpg.controller;
 
 import com.studygrowthrpg.auth.dto.SignupRequest;
+import com.studygrowthrpg.auth.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

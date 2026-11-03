@@ -1,4 +1,4 @@
-package com.studygrowthrpg.auth;
+package com.studygrowthrpg.auth.enums;
 
 public enum UserStatus {
     ACTIVE,

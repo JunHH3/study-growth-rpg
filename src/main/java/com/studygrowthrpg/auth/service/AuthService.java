@@ -1,5 +1,8 @@
-package com.studygrowthrpg.auth;
+package com.studygrowthrpg.auth.service;
 
+import com.studygrowthrpg.auth.exception.DuplicateUserException;
+import com.studygrowthrpg.auth.enetity.User;
+import com.studygrowthrpg.auth.repository.UserRepository;
 import com.studygrowthrpg.auth.dto.SignupRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.studygrowthrpg.auth;
+package com.studygrowthrpg.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

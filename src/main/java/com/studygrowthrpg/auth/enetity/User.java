@@ -1,5 +1,7 @@
-package com.studygrowthrpg.auth;
+package com.studygrowthrpg.auth.enetity;
 
+import com.studygrowthrpg.auth.enums.UserRole;
+import com.studygrowthrpg.auth.enums.UserStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
