@@ -1,7 +1,13 @@
 package com.studygrowthrpg.auth.repository;
 
-import com.studygrowthrpg.auth.enetity.User;
+import com.studygrowthrpg.auth.entity.EmailVerificationToken;
+import com.studygrowthrpg.auth.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EmailVerificationTokenRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
+
+public interface EmailVerificationTokenRepository extends JpaRepository<EmailVerificationToken, Long> {
+
+    Optional<EmailVerificationToken> findByTokenHash(String tokenHash);
+    Optional<EmailVerificationToken> findByUser(User user);
 }
