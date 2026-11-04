@@ -1,4 +1,4 @@
-package com.studygrowthrpg.auth.enetity;
+package com.studygrowthrpg.auth.entity;
 
 import com.studygrowthrpg.auth.enums.UserRole;
 import com.studygrowthrpg.auth.enums.UserStatus;

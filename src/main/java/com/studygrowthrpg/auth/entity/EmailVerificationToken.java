@@ -1,4 +1,4 @@
-package com.studygrowthrpg.auth.enetity;
+package com.studygrowthrpg.auth.entity;
 
 import jakarta.persistence.*;
 
@@ -33,6 +33,11 @@ public class EmailVerificationToken {
 
     public EmailVerificationToken(User user, String tokenHash) {
         this.user = user;
+        this.tokenHash = tokenHash;
+        this.expiresAt = LocalDateTime.now().plusMinutes(30);
+    }
+
+    public void renew(String tokenHash) {
         this.tokenHash = tokenHash;
         this.expiresAt = LocalDateTime.now().plusMinutes(30);
     }
