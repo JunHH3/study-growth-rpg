@@ -4,6 +4,7 @@ import com.studygrowthrpg.auth.entity.EmailVerificationToken;
 import com.studygrowthrpg.auth.entity.User;
 import com.studygrowthrpg.auth.repository.EmailVerificationTokenRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -55,5 +56,26 @@ public class EmailVerificationService {
 
         emailVerificationTokenRepository.save(verificationToken);
         return rawToken;
+    }
+
+    @Transactional
+    public void verifyToken(String rawToken) {
+        String tokenHash = hashToken(rawToken);
+
+        Optional<EmailVerificationToken> existingToken =
+                emailVerificationTokenRepository.findByTokenHash(tokenHash);
+        if (existingToken.isEmpty()) {
+            throw new IllegalArgumentException("유효하지 않은 인증 토큰입니다.");
+        }
+
+        EmailVerificationToken emailVerificationToken = existingToken.get();
+
+        if (emailVerificationToken.isExpired()) {
+            throw new IllegalArgumentException("만료된 인증 토큰입니다");
+        }
+
+        User user = emailVerificationToken.getUser();
+        user.verifyEmail();
+        emailVerificationTokenRepository.delete(emailVerificationToken);
     }
 }
