@@ -15,6 +15,14 @@ public class EmailVerificationToken {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
+    public User getUser() {
+        return user;
+    }
+
+    public boolean isExpired() {
+        return !LocalDateTime.now().isBefore(expiresAt);
+    }
+
     @Column(nullable = false)
     private String tokenHash;
 

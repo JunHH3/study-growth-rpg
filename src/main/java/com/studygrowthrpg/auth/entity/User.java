@@ -36,6 +36,10 @@ public class User {
 
     private LocalDateTime emailVerifiedAt;
 
+    public void verifyEmail() {
+        emailVerifiedAt = LocalDateTime.now();
+    }
+
     @PrePersist
     protected void onCreate(){
         createdAt = LocalDateTime.now();
